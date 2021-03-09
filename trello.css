@@ -1,0 +1,22 @@
+#sortable1, #sortable2, #sortable3{
+    list-style-type: none;
+    margin: 0; 
+    float: left; 
+    margin-right: 10px; 
+    padding: 5px; 
+    width: 200px;
+}
+#sortable1 li, #sortable2 li, #sortable3 li { 
+    margin: 5px; 
+    padding: 5px; 
+    font-size: 1em; 
+    width: 200px;
+}
+
+#dialog {
+    float: right;
+    background-color: rgb(167, 160, 160);
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 10px;
+}

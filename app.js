@@ -1,15 +1,39 @@
-//add function 
+//datepicker
 $(function(){
-    var $input = $("#addText"), 
-        $list = $("ul");
+  $("#datepicker").datepicker({
+      showButtonPanel: true
+    });  
+});
+//submit task function
+$("#submitBtn").click(function(){
+  var taskList = $("#addTask").val();
+  var date = $("#datepicker").val();
+  //append input to the list
+  $("#sortable1").append("<li>" + taskList +"<span> </span> "+ date +"</li>");
+  //reset input form
+  $("addTask").val("");
+});
 
-    function addTask(e) {
-        if(e.type==="keydown" && e.which!== 15) return;
-        e.preventDefault();//form not submitted
-        $list.append("<li>" + $input.val() + "</li>");
-        $input.val(""); //reset form
-    }
+//draggable & dropable
+$(function(){
+  $("#sortable1").sortable({
+      connectWith:"#sortable2, #sortable3",
+      drop: function(event,ui){
+        $(this).css("background-color","yellow")
+      }
+  });
+  $("#sortable2").sortable({
+      connectWith:"#sortable3, #sortable1",
+  });
+  $("#sortable3").sortable({
+      connectWith:"#sortable1, #sortable2",
+  });
+});
 
-    $("#addBtn").click(addTask);
-    $("#addText").keydown(addTask);
-})
+//dialog message
+$( function() {
+  $( "#content_1" ).dialog({
+    modal: true,
+    responsive: true,
+  });
+});
